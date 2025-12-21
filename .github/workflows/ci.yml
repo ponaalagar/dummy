@@ -1,0 +1,8 @@
+name: ci lab
+on: push 
+jobs:
+    test-jobs:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "hello world"
+      
