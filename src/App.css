@@ -1,42 +1,218 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.app__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 2rem;
+  background: linear-gradient(120deg, #1f2937, #111827);
+  color: #f8fafc;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+}
+
+.app__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.app__header h1 {
+  font-size: clamp(1.8rem, 2vw + 1.5rem, 3rem);
+  max-width: 32rem;
+  margin: 0;
+}
+
+.tab-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 260px;
+}
+
+.tab-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tab-form__controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.tab-form input {
+  flex: 1;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tabs__button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.tabs__button--active {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.tabs__count {
+  background: rgba(15, 23, 42, 0.15);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.tabs__button--active .tabs__count {
+  background: rgba(248, 250, 252, 0.2);
+}
+
+.tab-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+}
+
+.tab-panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tab-panel__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.tab-panel__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.2rem 0;
+  width: min(420px, 80vw);
+}
+
+.tab-panel__title:focus {
+  outline: none;
+  border-color: #0f172a;
+}
+
+.tab-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.attributes__header h2,
+.attribute-form h2 {
+  margin: 0 0 0.25rem;
+}
+
+.attributes__list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.attribute-card {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.attribute-card label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.attribute-form form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.attribute-form p {
+  margin: 0;
+  color: #475569;
+}
+
+.empty-state {
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px dashed #cbd5f5;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.empty-state--panel {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  background: #0f172a;
+  color: #f8fafc;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.button--ghost {
+  background: transparent;
+  border: 1px solid #cbd5f5;
+  color: #0f172a;
+}
+
+@media (max-width: 720px) {
+  .tab-form__controls {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .tab-panel {
+    padding: 1.5rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
